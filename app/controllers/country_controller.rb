@@ -27,7 +27,7 @@ class CountryController < ApplicationController
     @country = Country.find(params[:id])
  
     if @country.update(country_params)
-      redirect_to @countries, flash: {notice: "Cliente actualizado exitosamente"}
+      redirect_to country_index_path, flash: {notice: "Cliente actualizado exitosamente"}
     else
       render 'edit'
     end

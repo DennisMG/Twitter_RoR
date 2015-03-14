@@ -1,4 +1,12 @@
-%center
-	%h1 New Country
-	=render 'form'
+%center 
+  = form_for @country,  url:country_index_path do |f|
+    .field
+      = f.label :name
+      %br
+        = f.text_field :name
+    
+    %br
+    %br
+    .actions
+      = f.submit
 
