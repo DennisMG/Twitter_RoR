@@ -1,0 +1,18 @@
+- if tweets.any?
+  %h2 Tweets
+
+  %table{border:"1"}
+    %tr
+      %th Tweet
+      %th Fecha de Creacion
+
+    = render tweets
+    %tr
+
+  %br
+  %br
+- else
+  %em Aun no tiene Tweets
+  %br
+  %br
+  %br

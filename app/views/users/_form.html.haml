@@ -13,8 +13,14 @@
       %br
         = f.password_field :password
         %br
-          = f.label :"Pasword Confirmation"
-          %br
-            = f.password_field  :password_confirmation
+        
+    .field
+    = f.label :gender, "Gender"
+    = f.select :gender, ["Male","Femenine"]
+    %br
+    .field
+    = f.label :country, "Country"
+    = f.collection_select :country_id, Country.order(:name), :id, :name
+    %br
     .actions
       = f.submit

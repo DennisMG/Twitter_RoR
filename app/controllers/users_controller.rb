@@ -48,14 +48,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def updatetweets
+    @user = User.find(params[:id])
+  end
+
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
-
-
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :gender, :country_id,tweets_attributes: [:content])
     end
 end

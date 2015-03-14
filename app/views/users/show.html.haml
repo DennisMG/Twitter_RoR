@@ -9,6 +9,17 @@
 	%p
 		%strong Password:
 		= @user.password
+
+	%p
+		%strong Gender:
+		= @user.gender	
+
+	= render partial: "tweets", locals: { tweets: @user.tweets }
+
+	= new_tweet_link
+
 	= link_to 'Edit', edit_user_path(@user)
 	
 	= link_to 'Back', users_path
+	
+

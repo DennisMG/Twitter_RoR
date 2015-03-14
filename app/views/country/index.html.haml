@@ -1,0 +1,20 @@
+%center  
+  %h1 Listing Countries
+
+  - if flash[:notice].present?
+    .notice= flash[:notice]
+
+  
+  - if @countries.any?
+    %table{border: "1"}
+      %tr
+        %th Name
+        %th edit
+      = render partial: "country", collection: @countries
+      
+  - else
+    %em No Hay ningun country agregado
+    %br 
+  = link_to 'New Country', new_country_path
+
+            
