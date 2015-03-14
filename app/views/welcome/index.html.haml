@@ -1,9 +1,15 @@
 %center
-	%h1 Welcome to Twitter
+	
 	%br
-	%h2 
-		Please
-		= link_to 'sign up', new_user_path 
-		or
-		= link_to 'log in', new_user_path 
+	%h1 Unete a nuestra red, por ahora tenemos #{@users.count} usuarios activos!
+	%br
+	#box
+		%h2 
+			Please
+			%span{:style => "font-weight:bold; color:#C4DA64;"} sign up
+			=link_to 'HERE', new_user_path 
 
+	=link_to 'SEE ALL TWEETS HERE', tweets_path 
+
+
+		

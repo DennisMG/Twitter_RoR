@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208085214) do
+ActiveRecord::Schema.define(version: 20150304221804) do
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", force: true do |t|
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -25,6 +34,10 @@ ActiveRecord::Schema.define(version: 20150208085214) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "gender"
+    t.integer  "country_id"
   end
+
+  add_index "users", ["country_id"], name: "index_users_on_country_id"
 
 end

@@ -1,8 +1,16 @@
 Twitter::Application.routes.draw do
  
-  resources :tweets
 
-  resources :users
+  resources :users do
+    resources :tweets, only: [:new, :create]
+    get "updatetweets", on: :member
+  end
+
+  resources :country, except: [:show, :destroy]
+
+  get "/tweets" => "tweets#index"#, as: :patito
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

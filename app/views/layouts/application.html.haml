@@ -6,7 +6,45 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = link_to 'Tweets',  tweets_path
-    = link_to 'Users', users_path
-    = link_to 'Twitter Home', root_path
-    = yield
+    #banner
+      %h1 Welcome to Twitter
+    #menu
+      %ul#nav
+        %li= link_to 'Twitter Home', root_path
+        %li= link_to 'Users', users_path
+        %li= link_to 'Country', country_index_path
+    #container
+      #content
+        = yield
+      #content_right
+        #content_right
+          %dl.curved
+            %dt RECOMMENDED LINKS
+            %dd
+              %br/
+              %ul#navlist
+                %li
+                  %a{:href => "#"} Snapp Happy
+                %li
+                  %a{:href => "#"} Open Designs
+                %li
+                  %a{:href => "#"} Andreas Viklund
+                %li
+                  %a{:href => "#"} James Koster
+                %li
+                  %a{:href => "#"} CSS play
+                %li
+                  %a{:href => "#"} Listamatic
+              %p.last &nbsp;
+
+  #footer
+    %p
+    %a{:href => "#"} homepage
+    |
+    %a{:href => "mailto:denise@mitchinson.net"} contact
+    | &copy; 2007 Anyone | Design by
+    %a{:href => "http://www.mitchinson.net"} www.mitchinson.net
+    | Licensed under a
+    %a{:href => "http://creativecommons.org/licenses/by/3.0/", :rel => "license"} Creative Commons Attribution 3.0 License
+
+

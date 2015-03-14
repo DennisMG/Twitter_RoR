@@ -8,9 +8,11 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+
   end
 
   def new
+    @user =User.find(params[:user_id])
     @tweet = Tweet.new
   end
 
@@ -21,39 +23,28 @@ class TweetsController < ApplicationController
 
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    @user = User.find(params[:user_id])
+
+    @tweet = @user.tweets.build(tweet_params)
 
     if @tweet.save
-      redirect_to @tweet
+      redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
 
   def update
-    @tweet = Tweet.find(params[:id])
- 
-    if @tweet.update(tweet_params)
-      redirect_to @tweet
-    else
-      render 'edit'
-    end
+
   end
 
 
   def destroy
-    @tweet = Tweet.find(params[:id])
-    @tweet.destroy
-    redirect_to tweets_path
+
   end
 
   private
-
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
-
 
     def tweet_params
       params.require(:tweet).permit(:content)
