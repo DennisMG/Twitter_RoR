@@ -7,4 +7,9 @@ class Tweet < ActiveRecord::Base
     created_at.strftime(" %B %d, %Y %l:%M %p")
   	end
 
+  	def get_owner(id)
+  		@user = User.find(id)
+  		@user.name
+  	end
+
 end

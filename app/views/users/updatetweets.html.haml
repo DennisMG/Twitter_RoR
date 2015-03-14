@@ -1,13 +1,13 @@
 
 
-= form_for @user do |u|
+= form_for @user do |f|
   %table{id:"rounded-corner",border: "1"}
     %thead
       %tr
         %th Tweet
     %tbody
-      = u.fields_for :tweets do |tw|
+      = f.fields_for :tweets do |fb|
         %tr
-          %td= tw.text_field :content, class: "form_input"
+          %td= fb.number_field :content, class: "form_input"
   %br
-  = u.submit class: "form_submit"
+  = f.submit class: "form_submit"
