@@ -1,0 +1,11 @@
+%h1 Bienvenido a Twitter
+%p 
+  Estimado
+  %strong= @user.name
+  bienvenido a la red social #1, preparate para pertenecer a la comunidad mas grande en el mundo y disfruta compartiendo tus mejores momentos.
+%p
+  Tu usuario para poder hacer login es:
+  %strong= @user.email
+%p
+  Entra a nuestra pagina y comparte ya
+  = link_to "Twitter Network", users_path

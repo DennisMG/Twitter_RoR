@@ -5,11 +5,11 @@ class Tweet < ActiveRecord::Base
 
 	def decorate_created_at
     created_at.strftime(" %B %d, %Y %l:%M %p")
-  	end
+  end
 
-  	def get_owner(id)
-  		@user = User.find(id)
-  		@user.name
-  	end
+  def get_owner(id)
+      @user = User.find(id)
+      @user.name
+  end
 
 end

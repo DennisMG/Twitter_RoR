@@ -8,6 +8,6 @@
     %tbody
       = f.fields_for :tweets do |fb|
         %tr
-          %td= fb.number_field :content, class: "form_input"
+          %td= fb.text_field :content, class: "form_input"
   %br
   = f.submit class: "form_submit"
