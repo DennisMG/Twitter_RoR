@@ -1,6 +1,7 @@
 Twitter::Application.routes.draw do
  
 
+  get "sessions/new"
   resources :users do
     resources :tweets, only: [:new, :create]
     get "updatetweets", on: :member
@@ -8,7 +9,12 @@ Twitter::Application.routes.draw do
 
   resources :country, except: [:show, :destroy]
 
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
   get "/tweets" => "tweets#index"#, as: :patito
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

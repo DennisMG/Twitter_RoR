@@ -13,6 +13,9 @@ class TweetsController < ApplicationController
 
   def new
     @user =User.find(params[:user_id])
+    if current_user.id != @user.id
+      redirect_to users_path
+    end
     @tweet = Tweet.new
   end
 
